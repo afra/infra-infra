@@ -5,5 +5,6 @@
     ./yuka
     ./spacekookie
     ./lux
+    ./zotan
   ];
 }
