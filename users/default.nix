@@ -6,5 +6,6 @@
     ./spacekookie
     ./lux
     ./zotan
+    ./multi
   ];
 }
