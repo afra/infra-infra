@@ -12,14 +12,16 @@
 
   nix.gc.automatic = lib.mkDefault true;
   nix.gc.options = lib.mkDefault "--delete-older-than 1d";
-  nix.trustedUsers = [ "root" "@wheel" ];
+  nix.settings.trusted-users = [ "root" "@wheel" ];
   environment.variables.EDITOR = "vim"; # fight me :-)
 
   services.openssh.enable = true;
-  services.openssh.passwordAuthentication = false;
-  services.openssh.kbdInteractiveAuthentication = false;
-  services.openssh.permitRootLogin = lib.mkDefault "no";
-  services.openssh.extraConfig = "StreamLocalBindUnlink yes";
+  services.openssh.settings = {
+    PasswordAuthentication = false;
+    KbdInteractiveAuthentication = false;
+    PermitRootLogin = lib.mkDefault "no";
+    StreamLocalBindUnlink = lib.mkDefault "yes";
+  };
   security.sudo.wheelNeedsPassword = false;
 
   nftables.enable = true;
@@ -37,7 +39,7 @@
     termite.terminfo
     bat
     bottom
-    exa
+    eza
     fd
     git
     htop
@@ -59,9 +61,9 @@
     use = "nix-shell -p";
     cat = "bat --style=header";
     grep = "rg";
-    ls = "exa";
-    ll = "exa -l";
-    la = "exa -la";
-    tree = "exa -T";
+    ls = "eza";
+    ll = "eza -l";
+    la = "eza -la";
+    tree = "eza -T";
   };
 }
