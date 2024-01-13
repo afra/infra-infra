@@ -25,7 +25,7 @@ in {
     #../../services/influxdb2
   ];
 
-  boot.loader.grub.device = "/dev/disk/by-id/nvme-eui.0025385691b09d22";
+  boot.loader.systemd-boot.enable = true;
 
   networking.interfaces.enp4s0.useDHCP = true;
 
@@ -97,7 +97,7 @@ in {
 
   #systemd.services.snapclient.serviceConfig.ExecStart = lib.mkForce "${snapcast}/bin/snapclient -h core.lan --player pulse -s alsa_output.pci-0000_00_1b.0.analog-stereo";
 
-  system.stateVersion = "21.05";
+  system.stateVersion = "23.11";
 }
 
 # wireguard pubkey: ImxmLMTnlFiEehfA0j/WMfYhKle8XpOKrIPDAd+y3SA=
