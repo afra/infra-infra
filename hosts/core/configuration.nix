@@ -15,10 +15,10 @@ in {
     #../../services/snapcast-client
     #../../services/mpd
     #../../services/nfs-server
-    #../../services/bgp-tunnel
+    ../../services/bgp-tunnel
     #../../services/unifi
-    #../../services/presence-monitor
-    #../../services/dns
+    ../../services/presence-monitor
+    ../../services/dns
     #../../services/minetest
     #../../services/mosquitto
     #../../services/grafana
@@ -64,7 +64,7 @@ in {
     acceptTerms = true;
   };
 
-  #services.nginx = {
+  services.nginx = {
   #  enable = true;
   #  virtualHosts."core.afra-berlin.eu" = {
   #    locations."/".root = ./html;
@@ -75,15 +75,15 @@ in {
   #    enableACME = true;
   #    forceSSL = true;
   #  };
-  #  virtualHosts."core.lan" = {
-  #    locations."/".return = "307 https://core.afra-berlin.eu$request_uri";
-  #  };
+    virtualHosts."core.space.afra-berlin.de" = {
+      locations."/".return = "307 https://core.afra-berlin.eu$request_uri";
+    };
   #  virtualHosts."afra-core.yuka.dev" = {
   #    enableACME = true;
   #    forceSSL = true;
   #    locations."/".return = "307 https://core.afra-berlin.eu$request_uri";
   #  };
-  #};
+  };
 
   networking.firewall.allowedTCPPorts = [ 443 ];
 

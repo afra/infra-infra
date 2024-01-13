@@ -4,25 +4,11 @@ with lib;
 
 let
   hosts = {
-    ketchup = rec {
-      magicNumber = 4;
-      wireguard = {
-        Endpoint = "[2a0f:4ac1:4::1]:51818";
-        PublicKey = "ygGp0FG7qjFsikd4Dv/68olRFKIQDdt0xrpcoac8YE8=";
-      };
-    };
     tralphium = rec {
       magicNumber = 5;
       wireguard = {
         Endpoint = "[2a0f:4ac1:5::1]:51818";
         PublicKey = "BG2oXzv2qZnQTr+PjUoEMA+vG24g617L3+5TjqHycHk=";
-      };
-    };
-    osmium = rec {
-      magicNumber = 8;
-      wireguard = {
-        Endpoint = "[2a0f:4ac1:8::1]:51818";
-        PublicKey = "kih/GnR4Bov/DM/7Rd21wK+PFQRUNH6sywVuNKkUAkk=";
       };
     };
     wob = rec {

@@ -29,10 +29,8 @@ let
     };
   });
 
-  npmlock2nix = pkgs.callPackage <npmlock2nix> {};
-
   presence-web = pkgs.callPackage (
-    { stdenv, nodejs-14_x }:
+    { stdenv, nodejs, npmHooks, fetchNpmDeps }:
 
     stdenv.mkDerivation rec {
       pname = "presence-web";
@@ -43,14 +41,17 @@ let
         rev = "b52ba8694bb1ad11269048734e2c06ed3a513400";
       };
 
-      node_modules = npmlock2nix.node_modules {
+      nativeBuildInputs = [ nodejs npmHooks.npmConfigHook ];
+
+      npmDeps = fetchNpmDeps {
         inherit src;
-        nodejs = nodejs-14_x;
+        hash = "sha256-M7R83S54sRXcx+4QTQz4fXfBg6muSOkiUOoy8DUn288=";
       };
 
       buildPhase = ''
         runHook preBuild
         export HOME=$(mktemp -d)
+        export NODE_OPTIONS="--openssl-legacy-provider"
         ln -s $node_modules/node_modules node_modules
         node_modules/.bin/ember build --environment production
         runHook postBuild
