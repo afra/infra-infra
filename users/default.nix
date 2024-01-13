@@ -7,5 +7,6 @@
     ./lux
     ./zotan
     ./multi
+    ./lilian
   ];
 }
