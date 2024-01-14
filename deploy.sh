@@ -15,7 +15,7 @@ fi
 
 mode="${1:-switch}"
 host="${2:-core}"
-target="${3:-$host.lan}"
+target="${3:-$host.space.afra-berlin.de}"
 
 if ! [ -d "hosts/$host" ]
 then

@@ -28,7 +28,7 @@ in {
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/disk/by-id/usb-Intenso_Rainbow_Line_15033100005508-0:0";
 
-  networking.interfaces.enp4s0.useDHCP = true;
+  networking.interfaces.enp3s0.useDHCP = true;
 
   #fileSystems."/mnt" =
   #  { device = "tank";
