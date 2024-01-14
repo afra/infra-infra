@@ -74,7 +74,7 @@ in {
     environment.RUST_LOG = "trace";
     serviceConfig = {
       EnvironmentFile = config.secrets.presence-monitor-env.path;
-      ExecStartPre = "${pkgs.diesel-cli}/bin/diesel migration --migration-dir ${presence-monitor.src}/migrations --database-url /var/lib/presence-monitor/db.sqlite";
+      ExecStartPre = "${pkgs.diesel-cli}/bin/diesel migration run --migration-dir ${presence-monitor.src}/migrations --database-url /var/lib/presence-monitor/db.sqlite";
       ExecStart = "${presence-monitor}/bin/presence-monitor";
       DynamicUser = true;
       StateDirectory = "presence-monitor";
