@@ -30,7 +30,7 @@ let
   });
 
   presence-web = pkgs.callPackage (
-    { stdenv, nodejs, npmHooks, fetchNpmDeps }:
+    { stdenv, nodejs_20, npmHooks, fetchNpmDeps }:
 
     stdenv.mkDerivation rec {
       pname = "presence-web";
@@ -41,7 +41,7 @@ let
         rev = "b52ba8694bb1ad11269048734e2c06ed3a513400";
       };
 
-      nativeBuildInputs = [ nodejs npmHooks.npmConfigHook ];
+      nativeBuildInputs = [ nodejs_20 npmHooks.npmConfigHook ];
 
       npmDeps = fetchNpmDeps {
         inherit src;
