@@ -8,5 +8,6 @@
     ./zotan
     ./multi
     ./lilian
+    ./fiona
   ];
 }
