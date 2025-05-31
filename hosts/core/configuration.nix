@@ -23,6 +23,7 @@ in {
     #../../services/mosquitto
     #../../services/grafana
     #../../services/influxdb2
+    ../../services/home-assistant
   ];
 
   boot.loader.grub.enable = true;

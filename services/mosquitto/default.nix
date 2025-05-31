@@ -11,6 +11,6 @@
   };
 
   # TODO: is this needed at all?
-  networking.firewall.allowedTCPPorts = [ 1883 ];
-  networking.firewall.allowedUDPPorts = [ 1883 ];
+  networking.firewall.interfaces.enp3s0.allowedTCPPorts = [ 1883 ];
+  networking.firewall.interfaces.enp3s0.allowedUDPPorts = [ 1883 ];
 }

@@ -17,6 +17,7 @@ ympd            IN      CNAME      core
 presence        IN      CNAME      core
 snapweb         IN      CNAME      core
 grafana         IN      CNAME      core
+hass            IN      CNAME      core
 
 
 todo.vorstand	IN	CNAME      afra.uber.space.
