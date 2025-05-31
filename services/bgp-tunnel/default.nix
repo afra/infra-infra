@@ -24,12 +24,10 @@ in {
       };
       wireguardPeers = [
         {
-          wireguardPeerConfig = {
-            AllowedIPs = [ "0.0.0.0/0" "::/0" ];
-            PublicKey = "kih/GnR4Bov/DM/7Rd21wK+PFQRUNH6sywVuNKkUAkk=";
-            PersistentKeepalive = 21;
-            Endpoint = "[2a0f:4ac0:ca6c::1]:51820";
-          };
+          AllowedIPs = [ "0.0.0.0/0" "::/0" ];
+          PublicKey = "kih/GnR4Bov/DM/7Rd21wK+PFQRUNH6sywVuNKkUAkk=";
+          PersistentKeepalive = 21;
+          Endpoint = "[2a0f:4ac0:ca6c::1]:51820";
         }
       ];
     };

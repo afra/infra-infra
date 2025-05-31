@@ -33,10 +33,6 @@
   programs.mtr.enable = true;
 
   environment.systemPackages = with pkgs; [
-    alacritty.terminfo
-    kitty.terminfo
-    rxvt_unicode.terminfo
-    termite.terminfo
     bat
     bottom
     eza
