@@ -7,17 +7,14 @@ $TTL 3600
                 IN      A          195.39.247.225
                 IN      AAAA       2a0f:4ac0:af5a::1
 
-core            IN      A          195.39.247.225
+neocore         IN      A          195.39.247.225
                 IN      AAAA       2a0f:4ac0:af5a::1
 
 ns1             IN      A          195.39.247.225
                 IN      AAAA       2a0f:4ac0:af5a::1
 
-ympd            IN      CNAME      core
-presence        IN      CNAME      core
-snapweb         IN      CNAME      core
-grafana         IN      CNAME      core
-hass            IN      CNAME      core
-
+core            IN      CNAME      neocore
+presence        IN      CNAME      neocore
+hass            IN      CNAME      neocore
 
 todo.vorstand	IN	CNAME      afra.uber.space.

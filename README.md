@@ -1,4 +1,4 @@
 # infra-infra
 Hackerspace infrastructure redundancy infrastructure
 
-To deploy, run `./deploy.sh switch <host>`, where host is core, musicpi, musicpi2.
+To deploy, run `./deploy.sh switch <host>`, where host is neocore or gateway.

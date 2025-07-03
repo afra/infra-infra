@@ -14,7 +14,7 @@ then
 fi
 
 mode="${1:-switch}"
-host="${2:-core}"
+host="${2:-neocore}"
 target="${3:-$host.space.afra-berlin.de}"
 
 if ! [ -d "hosts/$host" ]

@@ -23,9 +23,9 @@ let
     open_status_mac = "E8:94:F6:4F:CB:CC";
 
     probe = {
-      iface = "enp3s0";
-      source_v6_addr = "fe80::3285:a9ff:fe40:b2c9";
-      source_v4_addr = "172.23.42.229";
+      iface = "eno1";
+      source_v6_addr = "fe80::d2bf:9cff:fe45:bd88";
+      source_v4_addr = "172.23.42.224";
     };
   });
 
