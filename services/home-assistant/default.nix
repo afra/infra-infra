@@ -15,6 +15,7 @@
     extraPackages = python3Packages: with python3Packages; [
       psycopg2
       pysnmp
+      gtts
     ];
     config = {
       default_config = {};
@@ -30,7 +31,7 @@
   services.mosquitto = {
     enable = true;
     listeners = [{
-      address = "172.23.42.229";
+      address = "172.23.42.224";
       acl = [ "pattern readwrite #" ];
       omitPasswordAuth = true;
       settings.allow_anonymous = true;
