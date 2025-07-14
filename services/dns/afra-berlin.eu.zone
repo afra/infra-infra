@@ -1,8 +1,6 @@
 $TTL 3600
-@               IN      SOA        ns1.yuka.dev. afra.yuka.dev. 2024052101 7200 900 1209600 86400
+@               IN      SOA        ns1.afra-berlin.eu. ns2.afra-berlin.eu. 2024052101 7200 900 1209600 86400
                 IN      NS         ns1.afra-berlin.eu.
-                IN      NS         ns1.yuka.dev.
-                IN      NS         ns2.yuka.dev.
 
                 IN      A          195.39.247.225
                 IN      AAAA       2a0f:4ac0:af5a::1
@@ -11,6 +9,9 @@ neocore         IN      A          195.39.247.225
                 IN      AAAA       2a0f:4ac0:af5a::1
 
 ns1             IN      A          195.39.247.225
+                IN      AAAA       2a0f:4ac0:af5a::1
+
+ns2             IN      A          195.39.247.225
                 IN      AAAA       2a0f:4ac0:af5a::1
 
 core            IN      CNAME      neocore
