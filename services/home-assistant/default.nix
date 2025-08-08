@@ -9,8 +9,8 @@
       "wled"
       "mqtt"
       "tasmota"
-      # "history"
-      # "zha"
+      "spaceapi"
+      "ping"
     ];
     extraPackages = python3Packages: with python3Packages; [
       psycopg2
@@ -25,6 +25,23 @@
         trusted_proxies = [ "::1" ];
         use_x_forwarded_for = true;
       };
+      spaceapi = {
+        space = "AfRA Berlin";
+        logo = "https://afra-berlin.de/dokuwiki/lib/exe/fetch.php?t=1426288945&w=128&h=128&tok=561205&media=afra-logo.png";
+        url = "https://afra-berlin.de";
+        location = {
+          address = "Margaretenstr. 30, 10317 Berlin, Germany";
+          #lon = 13.4961541;
+          #lat = 52.5082224;
+        };
+        contact = {
+          email = "info@afra-berlin.de";
+          ml = "afra@afra-berlin.de";
+          issue_mail = "info@afra-berlin.de";
+        };
+        issue_report_channels = ["issue_mail"];
+        state.entity_id = "binary_sensor.172_23_42_230";
+      };
     };
   };
 
@@ -37,6 +54,7 @@
       settings.allow_anonymous = true;
     }];
   };
+  networking.firewall.interfaces.eno1.allowedTCPPorts = [ 1883 ];
 
   services.nginx = {
     enable = true;

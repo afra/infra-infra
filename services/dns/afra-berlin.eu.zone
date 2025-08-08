@@ -8,6 +8,8 @@ $TTL 3600
 neocore         IN      A          195.39.247.225
                 IN      AAAA       2a0f:4ac0:af5a::1
 
+neocore.space   IN      A          172.23.42.224
+
 ns1             IN      A          195.39.247.225
                 IN      AAAA       2a0f:4ac0:af5a::1
 
