@@ -20,6 +20,8 @@
     config = {
       default_config = {};
       automation = "!include automations.yaml";
+      scene = "!include scenes.yaml";
+      script = "!include scripts.yaml";
       http = {
         server_host = "::1";
         trusted_proxies = [ "::1" ];
