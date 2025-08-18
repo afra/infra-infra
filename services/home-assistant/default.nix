@@ -19,7 +19,7 @@
     ];
     config = {
       default_config = {};
-      # recorder.db_url = "postgresql://@/hass";
+      automation = "!include automations.yaml";
       http = {
         server_host = "::1";
         trusted_proxies = [ "::1" ];
