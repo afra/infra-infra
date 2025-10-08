@@ -7,6 +7,7 @@
     ../../services/bgp-tunnel
     ../../services/presence-monitor
     ../../services/dns
+    ../../services/mpd
     ../../services/home-assistant
   ];
 

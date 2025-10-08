@@ -8,13 +8,12 @@
 
   services.mpd = {
     enable = true;
-    musicDirectory = "/mnt/mukke";
     network.listenAddress = "any";
     extraConfig = ''
       audio_output {
         type "pulse"
         name "pulse audio"
-        server "localhost"
+        server "loud.space.afra-berlin.de"
       }
     '';
   };
