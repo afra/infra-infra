@@ -6,5 +6,6 @@
     ./lux
     ./gari
     ./fiona
+    ./rx14
   ];
 }
