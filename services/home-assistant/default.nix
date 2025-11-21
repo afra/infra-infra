@@ -11,6 +11,7 @@
       "tasmota"
       "spaceapi"
       "ping"
+      "shelly"
     ];
     extraPackages = python3Packages: with python3Packages; [
       psycopg2
