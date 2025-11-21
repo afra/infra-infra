@@ -51,7 +51,7 @@
   services.mosquitto = {
     enable = true;
     listeners = [{
-      address = "172.23.42.224";
+      address = "172.23.42.222";
       acl = [ "pattern readwrite #" ];
       omitPasswordAuth = true;
       settings.allow_anonymous = true;
