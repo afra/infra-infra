@@ -5,10 +5,10 @@
     ./hardware-configuration.nix
     ../../common
     ../../services/bgp-tunnel
-    ../../services/presence-monitor
     ../../services/dns
-    ../../services/mpd
     ../../services/home-assistant
+    ../../services/mpd
+    ../../services/presence-monitor
   ];
 
   boot.loader.grub = {
