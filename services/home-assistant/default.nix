@@ -48,6 +48,29 @@
     };
   };
 
+  services.zigbee2mqtt = {
+    enable = true;
+    settings = {
+      mqtt = {
+        base_topic = "zigbee2mqtt";
+        server = "mqtt://172.23.42.222:1883";
+      };
+      #permit_join = true;
+      serial = {
+        port = "/dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2286745-if00";
+        adapter = "deconz";
+      };
+      frontend = {
+        port = 24035;
+        host = "::1";
+      };
+      advanced = {
+        channel = 20;
+      };
+      homeassistant.enabled = true;
+    };
+  };
+
   services.mosquitto = {
     enable = true;
     listeners = [{
