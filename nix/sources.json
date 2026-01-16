@@ -5,34 +5,22 @@
         "homepage": "https://github.com/nmattia/niv",
         "owner": "nmattia",
         "repo": "niv",
-        "rev": "0ca27c51ab5a1944af99409bef7c3db881c8115a",
-        "sha256": "0v6whg2prd80x5v7adszg4ca9zs57ghjm1k71d43l87jpkvrky71",
+        "rev": "dd678782cae74508d6b4824580d2b0935308011e",
+        "sha256": "0dk8dhh9vla2s409anmrfkva6h3r32xmz3cm8ha09wyk8iyf1f87",
         "type": "tarball",
-        "url": "https://github.com/nmattia/niv/archive/0ca27c51ab5a1944af99409bef7c3db881c8115a.tar.gz",
+        "url": "https://github.com/nmattia/niv/archive/dd678782cae74508d6b4824580d2b0935308011e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
-        "branch": "nixos-25.05",
+        "branch": "nixos-25.11",
         "description": "Nix Packages collection",
         "homepage": "",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b43c397f6c213918d6cfe6e3550abfe79b5d1c51",
-        "sha256": "1dkp9sxci4b4f111x0ck493fiag68qjs5c927khzcj2a5pdbsayl",
+        "rev": "2c3e5ec5df46d3aeee2a1da0bfedd74e21f4bf3a",
+        "sha256": "056dyyrzwspr1cp4h4j4q25agpisilg8ijmjlg3dl2ln9qncj5f8",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/b43c397f6c213918d6cfe6e3550abfe79b5d1c51.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "npmlock2nix": {
-        "branch": "master",
-        "description": null,
-        "homepage": null,
-        "owner": "nix-community",
-        "repo": "npmlock2nix",
-        "rev": "9197bbf397d76059a76310523d45df10d2e4ca81",
-        "sha256": "1ddfby72fsnpn4yw43g4zxvg6jzlk5hi5cfnnccg9jgw53ckr4xh",
-        "type": "tarball",
-        "url": "https://github.com/nix-community/npmlock2nix/archive/9197bbf397d76059a76310523d45df10d2e4ca81.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/2c3e5ec5df46d3aeee2a1da0bfedd74e21f4bf3a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
