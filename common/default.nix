@@ -26,6 +26,7 @@
 
   networking.nftables.enable = true;
   networking.firewall.filterForward = true;
+  networking.firewall.checkReversePath = false;
 
   networking.domain = lib.mkDefault "lan";
   networking.useDHCP = lib.mkDefault false;
