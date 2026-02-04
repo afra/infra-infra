@@ -9,7 +9,6 @@
   services.nginx = {
     enable = true;
     virtualHosts = {
-      "core.afra-berlin.eu".locations."/ympd/".return = "307 https://ympd.afra-berlin.eu";
       "ympd.afra-berlin.eu" = {
         enableACME = true;
         forceSSL = true;

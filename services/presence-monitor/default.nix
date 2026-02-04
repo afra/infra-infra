@@ -85,7 +85,6 @@ in {
   services.nginx = {
     enable = true;
     virtualHosts = {
-      "core.afra-berlin.eu".locations."/presence/".return = "307 https://presence.afra-berlin.eu";
       "presence.afra-berlin.eu" = {
         enableACME = true;
         forceSSL = true;
