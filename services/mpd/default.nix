@@ -18,5 +18,5 @@
     '';
   };
 
-  networking.firewall.interfaces.enp3s0.allowedTCPPorts = [ config.services.mpd.network.port ];
+  networking.firewall.interfaces.eno1.allowedTCPPorts = [ config.services.mpd.network.port ];
 }
