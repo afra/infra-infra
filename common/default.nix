@@ -24,8 +24,8 @@
   };
   security.sudo.wheelNeedsPassword = false;
 
-  nftables.enable = true;
-  nftables.forwardPolicy = lib.mkDefault "drop";
+  networking.nftables.enable = true;
+  networking.firewall.filterForward = true;
 
   networking.domain = lib.mkDefault "lan";
   networking.useDHCP = lib.mkDefault false;
