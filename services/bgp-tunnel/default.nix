@@ -10,6 +10,8 @@ in {
 
   networking.useNetworkd = true;
 
+  networking.firewall.allowedUDPPorts = [ 51820 ];
+
   systemd.network = {
     netdevs."40-wg0" = {
       netdevConfig = {
