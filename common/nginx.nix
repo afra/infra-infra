@@ -17,8 +17,10 @@
     4443
   ];
 
+  # Step 1: for each virtualHost ${name}, set up a new virtualHost public-${name}
   services.nginx.virtualHosts =
     let
+      # Work around recursion in the NixOS module system by first evaluating all modules excluding this one
       allOtherModules = extendModules {
         modules = [
           {
@@ -34,6 +36,7 @@
     lib.mapAttrs' (
       name: host:
       lib.nameValuePair "public-${name}" {
+        # Listen on port 4443
         listen = [
           {
             addr = "[::]";
@@ -46,11 +49,14 @@
             ssl = true;
           }
         ];
+        # Re-use the ACME certificate from the original vhost
         useACMEHost = name;
         onlySSL = true;
         serverName = name;
         locations = lib.mkMerge (
+          # Copy the location definitions from the existing vhost...
           allOtherModules.options.services.nginx.virtualHosts.valueMeta.attrs.${name}.configuration.options.locations.definitions
+          # ... And merge them with our new config
           ++ [
             {
               "/hello".extraConfig = ''
@@ -63,6 +69,8 @@
       }
     ) privateSslVhosts;
 
+  # Step 2: Detect all external traffic and send it into nginx on :4443 instead of :443
+  # The public- vhosts are listening on port 4443 and can take extra actions for external users
   networking.nftables.tables."nginx-public" = {
     family = "inet";
     content = ''
