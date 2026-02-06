@@ -9,6 +9,7 @@
     ../../services/home-assistant
     ../../services/mpd
     ../../services/presence-monitor
+    ../../services/kanidm
   ];
 
   boot.loader.grub = {

@@ -20,5 +20,6 @@ core            IN      CNAME      neocore
 presence        IN      CNAME      neocore
 hass            IN      CNAME      neocore
 ympd            IN      CNAME      neocore
+id              IN      CNAME      neocore
 
 todo.vorstand	IN	CNAME      afra.uber.space.
