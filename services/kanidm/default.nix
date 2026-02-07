@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, ... }:
+{ lib, sources, pkgs, config, ... }:
 
 {
   services.kanidm.enableServer = true;
@@ -22,10 +22,47 @@
     SupplementaryGroups = ["nginx"];
   };
 
+  secrets.kanidm-selfservice-env = {};
+  systemd.services.kanidm-selfservice = let
+    kanidm-selfservice = pkgs.callPackage (
+      { rustPlatform }:
+
+      rustPlatform.buildRustPackage {
+        pname = "kanidm-selfservice";
+        version = "0.1.0";
+
+        src = sources.kanidm-selfservice;
+
+        cargoLock.lockFile = sources.kanidm-selfservice + "/Cargo.lock";
+
+        meta.mainProgram = "kanidm-selfservice";
+      }
+    ) {};
+
+    settings = {
+      base_url = "https://id.afra-berlin.eu";
+      signup_text = "";
+      bind_addr = "[::1]:8502";
+    };
+
+    settingsFormat = pkgs.formats.toml { };
+    configFile = settingsFormat.generate "config.toml" settings;
+  in {
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      EnvironmentFile = config.secrets.kanidm-selfservice-env.path;
+      ExecStart = "${lib.getExe kanidm-selfservice} ${configFile}";
+      DynamicUser = true;
+    };
+  };
+
   services.nginx = {
     virtualHosts."id.afra-berlin.eu" = {
       forceSSL = true;
       enableACME = true;
+      locations."/selfservice/" = {
+        proxyPass = "http://[::1]:8502";
+      };
       locations."/" = {
         proxyPass = "https://${config.services.kanidm.serverSettings.bindaddress}";
         extraConfig = ''

@@ -1,4 +1,10 @@
 {
+    "kanidm-selfservice": {
+        "branch": "main",
+        "repo": "https://cyberchaos.dev/yuka/kanidm-selfservice",
+        "rev": "91a7bf1fd21e779804726dc185784ffcf9dd846f",
+        "type": "git"
+    },
     "niv": {
         "branch": "master",
         "description": "Easy dependency management for Nix projects",
