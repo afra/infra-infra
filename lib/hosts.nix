@@ -1,4 +1,4 @@
-{ pkgs ? import ../pkgs { /* TODO system */} }:
+{ sources, pkgs }:
 
 with pkgs.lib;
 
@@ -29,10 +29,6 @@ rec {
     ).system or "x86_64-linux"
   ;
 
-  nixpkgsFor = hostName: (import ../pkgs {
-    system = hostArch hostName;
-  }).path;
-
   hostConfig = hostName: { config, ... }: {
     _module.args = {
       inherit hosts groups;
@@ -44,7 +40,7 @@ rec {
     networking = {
       inherit hostName;
     };
-    nixpkgs.pkgs = import ../pkgs {
+    nixpkgs.pkgs = import pkgs.path {
       inherit (config.nixpkgs) config system;
     };
   };
@@ -52,9 +48,10 @@ rec {
   hosts = listToAttrs (
     map (
       hostName: nameValuePair hostName (
-        import ((nixpkgsFor hostName) + "/nixos") {
+        import (pkgs.path + "/nixos") {
           configuration = hostConfig hostName;
           system = hostArch hostName;
+          specialArgs = { inherit sources; };
         }
       )
     ) hostNames
