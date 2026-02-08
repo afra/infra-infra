@@ -10,6 +10,8 @@
     ../../services/mpd
     ../../services/presence-monitor
     ../../services/kanidm
+    ../../services/vouch-proxy
+    ../../services/external-auth
   ];
 
   boot.loader.grub = {
