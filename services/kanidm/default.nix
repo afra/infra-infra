@@ -41,8 +41,9 @@
 
     settings = {
       base_url = "https://id.afra-berlin.eu";
-      signup_text = "";
+      signup_text = "Welcome to AfRA! Make sure to add a credential in the next step and successfully save your new settings. Otherwise your account can still be taken by someone else!";
       bind_addr = "[::1]:8502";
+      add_mail_domain = "id.afra-berlin.eu";
     };
 
     settingsFormat = pkgs.formats.toml { };
