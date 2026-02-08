@@ -28,6 +28,22 @@
         trusted_proxies = [ "::1" ];
         use_x_forwarded_for = true;
       };
+      homeassistant = {
+        auth_providers = [
+          {
+            type = "trusted_networks";
+            trusted_networks = [
+              "0.0.0.0/0"
+              "::/0"
+            ];
+            allow_bypass_login = true;
+
+          }
+          {
+            type = "homeassistant";
+          }
+        ];
+      };
       spaceapi = {
         space = "AfRA Berlin";
         logo = "https://afra-berlin.de/dokuwiki/lib/exe/fetch.php?t=1426288945&w=128&h=128&tok=561205&media=afra-logo.png";
