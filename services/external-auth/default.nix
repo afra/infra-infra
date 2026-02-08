@@ -53,9 +53,10 @@ in
         allOtherModules.options.services.nginx.virtualHosts.valueMeta.attrs.${name}.configuration.options.locations.definitions
         # ... And merge them with our new config
         ++ lib.optional (name == "id.afra-berlin.eu") {
-          #"/selfservice/".extraConfig = ''
-          #  auth_request /validate;
-          #'';
+          "/selfservice/".extraConfig = ''
+            add_header Content-Type text/plain always;
+            return 403 "You need to be in the local network of AfRA to sign up for an account.";
+          '';
         }
         ++ [
           {
