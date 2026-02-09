@@ -112,6 +112,9 @@
           proxyPass = "http://[::1]:8123";
           proxyWebsockets = true;
         };
+        "=/service-worker.js".extraConfig = ''
+          return 404;
+        '';
       };
     };
   };
