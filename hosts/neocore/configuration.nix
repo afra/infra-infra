@@ -6,6 +6,7 @@
     ../../common
     ../../services/bgp-tunnel
     ../../services/dns
+    ../../services/unifi
     ../../services/home-assistant
     ../../services/mpd
     ../../services/presence-monitor
