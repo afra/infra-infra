@@ -34,10 +34,13 @@
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/A157-D8BD"; }; # sda3
-
+    { device = "/dev/disk/by-uuid/A157-D8BD"; # sda3
+      fsType = "vfat";
+    };
   fileSystems."/boot-fallback" =
-    { device = "/dev/disk/by-uuid/A16D-DBE5"; }; # sdb3
+    { device = "/dev/disk/by-uuid/A16D-DBE5"; # sdb3
+      fsType = "vfat";
+    };
 
   swapDevices = [ ];
 

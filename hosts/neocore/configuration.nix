@@ -42,6 +42,7 @@
   # remote disk unlock
   boot.kernelModules = ["tg3"];
   boot.initrd.kernelModules = ["tg3"];
+  boot.initrd.systemd.enable = false;
   boot.initrd.network = {
     enable = true;
     ssh = {

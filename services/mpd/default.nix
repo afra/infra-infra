@@ -9,14 +9,15 @@
   services.mpd = {
     enable = true;
     network.listenAddress = "any";
-    extraConfig = ''
-      audio_output {
-        type "pulse"
-        name "pulse audio"
-        server "loud.space.afra-berlin.de"
-      }
-    '';
+    settings = {
+      audio_output = [{
+        type = "pulse";
+        name = "pulse audio";
+        server = "loud.space.afra-berlin.de";
+      }];
+    };
+    openFirewall = false;
   };
 
-  networking.firewall.interfaces.eno1.allowedTCPPorts = [ config.services.mpd.network.port ];
+  networking.firewall.interfaces.eno1.allowedTCPPorts = [ config.services.mpd.settings.port ];
 }

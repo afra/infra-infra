@@ -63,4 +63,6 @@
     la = "eza -la";
     tree = "eza -T";
   };
+
+  nix.package = pkgs.lixVersions.latest.lix;
 }
