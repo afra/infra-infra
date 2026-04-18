@@ -13,22 +13,6 @@ rec {
     )
   );
 
-  # HACK: We want to choose a nixpkgs version depending on the host architecture, but
-  # the host architecture is set in the NixOS config. We accept the limitation that
-  # nixpkgs.system must be set in the main configuration.nix file to prevent reading
-  # the host configuration twice.
-  hostArch = hostName:
-    (
-      (
-        import (hostsDir + "/${hostName}/configuration.nix") {
-          inherit (pkgs) pkgs lib;
-          config = {};
-          modulesPath = "";
-        }
-      ).nixpkgs or {}
-    ).system or "x86_64-linux"
-  ;
-
   hostConfig = hostName: { config, ... }: {
     _module.args = {
       inherit hosts groups;
@@ -40,9 +24,6 @@ rec {
     networking = {
       inherit hostName;
     };
-    nixpkgs.pkgs = import pkgs.path {
-      inherit (config.nixpkgs) config system;
-    };
   };
 
   hosts = listToAttrs (
@@ -50,7 +31,6 @@ rec {
       hostName: nameValuePair hostName (
         import (pkgs.path + "/nixos") {
           configuration = hostConfig hostName;
-          system = hostArch hostName;
           specialArgs = { inherit sources; };
         }
       )
