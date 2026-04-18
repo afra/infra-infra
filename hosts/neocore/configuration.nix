@@ -48,7 +48,7 @@
     ssh = {
       enable = true;
       port = 2222;
-      hostKeys = [ "/etc/ssh/initrd_ssh_host_rsa_key" ];
+      hostKeys = [ "/etc/ssh/initrd_ssh_host_rsa_key" "/etc/ssh/initrd_ssh_host_ed25519_key" ];
       authorizedKeys = lib.flatten (lib.mapAttrsToList (_: v: v.openssh.authorizedKeys.keys) config.users.users);
     };
     postCommands = ''
