@@ -1,4 +1,4 @@
-{ lib, sources, pkgs, config, ... }:
+{ lib, pkgs, config, ... }:
 
 {
   services.kanidm.enableServer = true;
@@ -27,13 +27,17 @@
     kanidm-selfservice = pkgs.callPackage (
       { rustPlatform }:
 
-      rustPlatform.buildRustPackage {
+      rustPlatform.buildRustPackage rec {
         pname = "kanidm-selfservice";
         version = "0.1.0";
 
-        src = sources.kanidm-selfservice;
+        src = pkgs.fetchgit {
+          url = "https://cyberchaos.dev/yuka/kanidm-selfservice";
+          rev = "6f58dd964631ac703814ec41613525d2fd535fe6";
+          hash = "sha256-RMCc9PwnfIgLwrdc9HzHt1X/uoHvxVuVwp0FT0lDqUo=";
+        };
 
-        cargoLock.lockFile = sources.kanidm-selfservice + "/Cargo.lock";
+        cargoLock.lockFile = "${src}/Cargo.lock";
 
         meta.mainProgram = "kanidm-selfservice";
       }
