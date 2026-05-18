@@ -21,7 +21,7 @@
     apps.deploy = lib.pipe self.nixosConfigurations [
       (lib.mapAttrs (name: _value: (flake-utils.lib.mkApp {
         drv = pkgs.writeShellScriptBin "deploy-${name}" ''
-          ${pkgs.nixos-rebuild}/bin/nixos-rebuild boot \
+          ${pkgs.nixos-rebuild}/bin/nixos-rebuild switch \
             --flake ${./.}#${name} \
             --target-host ${name}.space.afra-berlin.de \
             --use-remote-sudo \
