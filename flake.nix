@@ -2,6 +2,10 @@
   description = "AfRA Infra";
   inputs.nixpkgs.url = "nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
+  inputs.spaceapi-logo-proxy = {
+    url = "git+https://codeberg.org/afra/spaceapi-logo-proxy.git";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
 
   outputs = { self, nixpkgs, flake-utils, ... }@inputs: {
     nixosConfigurations = {
@@ -23,7 +27,7 @@
         drv = pkgs.writeShellScriptBin "deploy-${name}" ''
           ${pkgs.nixos-rebuild}/bin/nixos-rebuild switch \
             --flake ${./.}#${name} \
-            --target-host ${name}.space.afra-berlin.de \
+            --target-host ${name}.afra-berlin.eu \
             --use-remote-sudo \
             --log-format internal-json \
             -v \

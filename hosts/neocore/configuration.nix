@@ -13,6 +13,7 @@
     ../../services/kanidm
     ../../services/vouch-proxy
     ../../services/external-auth
+    ../../services/spaceapi-logo-proxy
   ];
 
   boot.loader.grub = {
