@@ -28,6 +28,7 @@
           ${pkgs.nixos-rebuild}/bin/nixos-rebuild switch \
             --flake ${./.}#${name} \
             --target-host ${name}.afra-berlin.eu \
+            --build-host ${name}.afra-berlin.eu \
             --use-remote-sudo \
             --log-format internal-json \
             -v \
