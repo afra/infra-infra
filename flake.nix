@@ -1,6 +1,6 @@
 {
   description = "AfRA Infra";
-  inputs.nixpkgs.url = "nixpkgs/nixos-unstable";
+  inputs.nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
   inputs.flake-utils.url = "github:numtide/flake-utils";
   inputs.spaceapi-logo-proxy = {
     url = "git+https://codeberg.org/afra/spaceapi-logo-proxy.git";
