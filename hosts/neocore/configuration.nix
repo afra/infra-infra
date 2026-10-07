@@ -14,6 +14,7 @@
     ../../services/vouch-proxy
     ../../services/external-auth
     ../../services/spaceapi-logo-proxy
+    ../../services/hplj1020
   ];
 
   boot.loader.grub = {
