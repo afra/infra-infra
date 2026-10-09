@@ -69,7 +69,7 @@
     settings = {
       mqtt = {
         base_topic = "zigbee2mqtt";
-        server = "mqtt://172.23.42.222:1883";
+        server = "mqtt://172.23.42.221:1883";
       };
       #permit_join = true;
       serial = {
@@ -90,7 +90,7 @@
   services.mosquitto = {
     enable = true;
     listeners = [{
-      address = "172.23.42.222";
+      address = "172.23.42.221";
       acl = [ "pattern readwrite #" ];
       omitPasswordAuth = true;
       settings.allow_anonymous = true;
