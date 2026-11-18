@@ -14,11 +14,12 @@
 
   afraPublicExposedVirtualHosts = [
     "spaceapi.afra-berlin.eu"
+    "spaceapi.afra-berlin.de"
   ];
 
   services.nginx = {
     enable = true;
-    virtualHosts."spaceapi.afra-berlin.eu" = {
+    virtualHosts."spaceapi.afra-berlin.de" = {
       enableACME = true;
       forceSSL = true;
       acmeRoot = "/var/lib/acme/acme-challenges";
@@ -31,6 +32,16 @@
         };
         "/v1/status.json" = {
           return = "301 /";
+        };
+      };
+    };
+    virtualHosts."spaceapi.afra-berlin.eu" = {
+      enableACME = true;
+      forceSSL = true;
+      acmeRoot = "/var/lib/acme/acme-challenges";
+      locations = {
+        "/" = {
+          return = "301 https://spaceapi.afra-berlin.de$request_uri";
         };
       };
     };
